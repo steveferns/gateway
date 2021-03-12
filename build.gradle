@@ -84,3 +84,11 @@ eclipse {
         downloadSources = true
     }
 }
+
+
+assemble.doLast{
+    copy {
+        from zipTree("build/libs/${project.name}-${version}.${jar.extension}")
+        into "$buildDir/dependency"
+    }
+}
